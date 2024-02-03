@@ -6,7 +6,8 @@ public class HashTagTokenizer {
 
 		String hashTag = args[0];
 		String []dictionary = readDictionary("dictionary.txt");
-		breakHashTag(hashTag, dictionary);
+		System.out.println(existInDictionary(hashTag, dictionary));
+		//breakHashTag(hashTag, dictionary);
 	}
 
 	public static String[] readDictionary(String fileName) {
@@ -26,7 +27,6 @@ public class HashTagTokenizer {
 		for(int i = 0; i < dictionary.length; i++) {
 			if(lowerCaseWord.equals(dictionary[i])) {
 				exist = true;
-				break;
 			}
 		}
 		return exist;
