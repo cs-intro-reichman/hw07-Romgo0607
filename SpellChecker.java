@@ -45,15 +45,16 @@ public class SpellChecker {
 	}
 
 	public static String spellChecker(String word, int threshold, String[] dictionary) {
+		String wordToLower = word.toLowerCase();
 		String finalWord = "";
 		for(int i = 0; i < dictionary.length - 1; i++) {
-			if (levenshtein(dictionary[i], word) == threshold) {
+			if (levenshtein(dictionary[i], wordToLower) == threshold) {
 				finalWord = dictionary[i];
 				break;
 			}
 		}
 		if(finalWord == "") {
-			return word;
+			return wordToLower;
 		} else {
 			return finalWord;
 		}
