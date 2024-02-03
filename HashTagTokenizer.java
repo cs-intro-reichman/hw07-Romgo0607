@@ -6,8 +6,8 @@ public class HashTagTokenizer {
 
 		String hashTag = args[0];
 		String []dictionary = readDictionary("dictionary.txt");
-		System.out.println(existInDictionary(hashTag, dictionary));
-		//breakHashTag(hashTag, dictionary);
+		//System.out.println(existInDictionary(hashTag, dictionary));
+		breakHashTag(hashTag, dictionary);
 	}
 
 	public static String[] readDictionary(String fileName) {
@@ -32,7 +32,7 @@ public class HashTagTokenizer {
 		return exist;
 	}
 
-	public static void breakHashTag(String hashtag, String[] dictionary) { //why does it prints lover as well? for input 'iloverecursion'
+	public static void breakHashTag(String hashtag, String[] dictionary) {
 
 		// Base case: do nothing (return) if hashtag is an empty string.
         if (hashtag.isEmpty()) {
@@ -45,6 +45,7 @@ public class HashTagTokenizer {
 			if(existInDictionary(hashtag.substring(0,i), dictionary)) {
 				System.out.println(hashtag.substring(0,i));
 				breakHashTag(hashtag.substring(i), dictionary);
+				return;
 			}
         }
     }
