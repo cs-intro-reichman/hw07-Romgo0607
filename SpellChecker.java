@@ -49,7 +49,7 @@ public class SpellChecker {
 	public static String spellChecker(String word, int threshold, String[] dictionary) {
 		String finalWord = "";
 		for(int i = 0; i < dictionary.length; i++) {
-			if (levenshtein(dictionary[i], word) <= threshold) {
+			if (levenshtein(dictionary[i], word) == threshold) {
 				finalWord = dictionary[i];
 				break;
 			}
