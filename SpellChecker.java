@@ -48,10 +48,14 @@ public class SpellChecker {
 
 	public static String spellChecker(String word, int threshold, String[] dictionary) {
 		String finalWord = "";
-		for(int i = 0; i < dictionary.length; i++) {
-			if (levenshtein(dictionary[i], word) == threshold) {
-				finalWord = dictionary[i];
-				break;
+		if(existInDictionary(word, dictionary)) {
+			return word;
+		} else {
+			for(int i = 0; i < dictionary.length; i++) {
+				if (levenshtein(dictionary[i], word) == threshold) {
+					finalWord = dictionary[i];
+					break;
+				}
 			}
 		}
 		if(finalWord == "") {
@@ -61,4 +65,14 @@ public class SpellChecker {
 		}
 	}
 
+	public static boolean existInDictionary(String word, String []dictionary) {
+		String lowerCaseWord = word.toLowerCase();
+		boolean exist = false;
+		for(int i = 0; i < dictionary.length; i++) {
+			if(lowerCaseWord.equals(dictionary[i])) {
+				exist = true;
+			}
+		}
+		return exist;
+	}
 }
