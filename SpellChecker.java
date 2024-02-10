@@ -52,6 +52,7 @@ public class SpellChecker {
 			return word;
 		} else {
 			for(int i = 0; i < dictionary.length; i++) {
+				// #feedback - you should find the minimum levenshtein distance, not necessarily the one that equals to the threshold.
 				if (levenshtein(dictionary[i], word) == threshold) {
 					finalWord = dictionary[i];
 					break;
